@@ -17,6 +17,6 @@ resource "aws_instance"  "raj" {
     instance_type = "t2.micro"
     
     tags = {
-      key_name  = "Sample Instance"
+      key_name  = var.instance_name
     }
 }
