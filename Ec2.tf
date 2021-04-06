@@ -8,15 +8,30 @@ terraform {
 }
 
 provider "aws" {
-    profile = "default"
-    region  = "ap-south-1"  
+  region     = "${var.region}"
+  access_key = "${var.access}"
+  secret_key = "${var.secret}"
 }
 
-resource "aws_instance"  "raj" {
-    ami           = "ami-068d43a544160b7ef"
-    instance_type = "t2.micro"
-    
-    tags = {
-      key_name  = var.instance_name
-    }
+resource "aws_vpc" "main" {
+  cidr_block       = "${var.vpc}"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = "main"
+    Location = "Bangalore"
+  }
 }
+
+resource "aws_subnet" "main" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "${var.subnet_vpc}"
+
+  tags = {
+    Name = "Main"
+  }
+}
+
+
+
+
