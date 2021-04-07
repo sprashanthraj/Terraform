@@ -7,14 +7,16 @@ terraform {
   }
 }
 
+# interpolation is not deprecated in the latest version of Terraform 
+
 provider "aws" {
-  region     = "${var.region}"
-  access_key = "${var.access}"
-  secret_key = "${var.secret}"
+  region     = var.region  # syntax of interpolation "${var.region}"
+  access_key = var.access
+  secret_key = var.secret
 }
 
 resource "aws_vpc" "main" {
-  cidr_block       = "${var.vpc}"
+  cidr_block       = var.vpc
   instance_tenancy = "default"
 
   tags = {
@@ -25,7 +27,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "main" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "${var.subnet_vpc}"
+  cidr_block = var.subnet_vpc
 
   tags = {
     Name = "Main"
