@@ -7,21 +7,10 @@
     
   
 # }
-
-variable "region" {
+  
+variable "region1" {
 
     default = "ap-south-1"
-  
-}
-
-variable "access" {
-    default   = "AKIAUW5FDT2RSZ45G6FN"
-    
-}
-
-variable "secret" {
-
-    default = "rf0ZmayNtxGNx5ggP5J9aniAXAV83XjCWkHt87y5"
   
 }
 

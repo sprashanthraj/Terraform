@@ -10,7 +10,7 @@ terraform {
 # interpolation is not deprecated in the latest version of Terraform 
 
 provider "aws" {
-  region     = var.region  # syntax of interpolation "${var.region}"
+  region     = var.region1  # syntax of interpolation "${var.region}"
   access_key = var.access
   secret_key = var.secret
 }
