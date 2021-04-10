@@ -23,3 +23,7 @@ variable "subnet_vpc" {
     default = "190.160.1.0/24"
   
 }
+
+
+    
+  
